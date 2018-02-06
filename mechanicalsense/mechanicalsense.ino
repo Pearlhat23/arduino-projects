@@ -16,10 +16,10 @@ void loop(){
   digitalWrite(triggerPin, LOW);
   int pulseWidth = pulseIn(echoPin, HIGH, maxDistance);
   Serial.println(pulseWidth);
-  if((pulseWidth < 100) || pulseWidth >= maxDistance){
+  if((pulseWidth <= 300) || pulseWidth >= maxDistance){
     pulseWidth = maxDistance;
   }
-  pulseWidth = map(pulseWidth, 1000, 10000, 1000, 0);
+  pulseWidth = map(pulseWidth, 300, 10000, 200, 100);
   analogWrite(vibratorPin, pulseWidth);
 }
 
